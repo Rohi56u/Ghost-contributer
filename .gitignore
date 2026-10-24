@@ -7,3 +7,7 @@ dist/
 build/
 .ghost/
 ghost-demo/
+.opencode/
+*.zip
+Ghost-Contributor-*.mp4
+The-Ghost-Contributor-PRD.pdf
