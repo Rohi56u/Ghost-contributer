@@ -1,0 +1,82 @@
+{
+  "application_version": "0.2.1",
+  "ollama_version": {
+    "version": "0.40.8"
+  },
+  "model": {
+    "tag": "qwen2.5-coder:7b",
+    "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "size": 4683087561,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    },
+    "license_present": true,
+    "capabilities": [
+      "completion",
+      "tools",
+      "insert"
+    ],
+    "endpoint": "http://127.0.0.1:11434"
+  },
+  "fixture": false,
+  "proposal_id": "2cadff97ef6e49d6",
+  "status": "committed",
+  "source_branch": "main",
+  "source_branch_unchanged": true,
+  "base_sha": "0fb801998f6bdb40309b0930bd1bec6a49cc6d1e",
+  "branch": "ghost/2cadff97ef6e49d6",
+  "commit_sha": "03d0d04fcaf0d3e791424783a5053c8f230bf039",
+  "response": {
+    "target": "retry.py",
+    "rationale": "The function `retry_delay` calculates a delay for retrying an operation based on the attempt number, with an exponential backoff and a maximum cap.",
+    "replacement_text": "The function `retry_delay` calculates a delay for retrying an operation based on the attempt number, with an exponential backoff and a maximum cap.",
+    "uncertainty": "none",
+    "evidence": [
+      {
+        "path": "retry.py",
+        "start_line": 1,
+        "end_line": 1,
+        "quote": "def retry_delay(attempt: int, base: float = 1.0, cap: float = 60.0) -> float:"
+      },
+      {
+        "path": "retry.py",
+        "start_line": 2,
+        "end_line": 2,
+        "quote": "    if attempt < 0 or base <= 0 or cap <= 0:"
+      },
+      {
+        "path": "retry.py",
+        "start_line": 3,
+        "end_line": 3,
+        "quote": "        raise ValueError(\"attempt must be nonnegative; base and cap must be positive\")"
+      },
+      {
+        "path": "retry.py",
+        "start_line": 4,
+        "end_line": 4,
+        "quote": "    return min(base * (2 ** attempt), cap)"
+      }
+    ]
+  },
+  "diff": "--- a/retry.py\n+++ b/retry.py\n@@ -1,4 +1,5 @@\n def retry_delay(attempt: int, base: float = 1.0, cap: float = 60.0) -> float:\n+    \"\"\"The function `retry_delay` calculates a delay for retrying an operation based on the attempt number, with an exponential backoff and a maximum cap.\"\"\"\n     if attempt < 0 or base <= 0 or cap <= 0:\n         raise ValueError(\"attempt must be nonnegative; base and cap must be positive\")\n     return min(base * (2 ** attempt), cap)\n",
+  "validations": [
+    "target_allowlist",
+    "exact_source_snapshot",
+    "structured_schema",
+    "evidence_quotes_match",
+    "syntax_and_span",
+    "idempotence"
+  ],
+  "remote_push_performed": false,
+  "source": "def retry_delay(attempt: int, base: float = 1.0, cap: float = 60.0) -> float:\n    if attempt < 0 or base <= 0 or cap <= 0:\n        raise ValueError(\"attempt must be nonnegative; base and cap must be positive\")\n    return min(base * (2 ** attempt), cap)\n"
+}

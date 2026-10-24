@@ -1,0 +1,39 @@
+Ghost Contributor 0.2.1 verification — 2026-10-22
+Environment: Python 3.12.14, Git 2.51.1, Linux.
+
+Automated suite after the source-citation prompt fix:
+Command: python -m pytest -q
+Observed result: 93 passed in 5.53s.
+
+Static checks completed during 0.2 development:
+- node --check src/ghost_contributor/web/app.js — passed.
+- python -m compileall -q src — passed.
+
+Packaging for 0.2.1:
+- python -m build — source distribution and wheel built successfully.
+- Version 0.2.1 wheel installed into an isolated target directory.
+- Installed CLI --version returned 0.2.1; --help passed.
+- Source ZIP includes editable code, dashboard assets, setup launchers, guides,
+  tests, architecture docs, MIT license, real-run record and the 0.2.1 wheel.
+
+Actual model/browser integration:
+- Real Ollama 0.40.8, local qwen2.5-coder:7b, cloud features disabled.
+- Successful real-model suggestion with four exact source quotes.
+- Browser run action measured 47.633 seconds.
+- Chromium dashboard diff/evidence review, approval dialog and commit flow.
+- Actual topic branch commit: 03d0d04fcaf0d3e791424783a5053c8f230bf039.
+- Original main branch/source unchanged. No remote push performed.
+- Actual dashboard screenshots inspected and used in the 45-second film.
+
+Fixture/automated coverage:
+- Synthetic seven-model inventory, numbered selection, existing repo registration.
+- Isolated sample, local HTTP contract, proposal review and actual Git operations.
+- Duplicate registration protection, model switching, timeout validation.
+- Embedding-only refusal, malformed catalog and controlled HTTP errors.
+- Exact source bytes kept separate from line-number metadata in model input.
+
+See docs/VERIFICATION.md and docs/REAL-RUN.md for boundaries.
+The one real-model sample is not a general quality/performance benchmark.
+No live GitHub push or cross-platform CI run is claimed.
+Windows launchers were reviewed and stored with CRLF, not executed on Windows.
+The user's laptop and seven installed models were not accessed.

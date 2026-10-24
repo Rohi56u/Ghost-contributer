@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Review small, evidence-backed documentation changes on your own machine."><title>Ghost Contributor · Local review</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="Ghost Contributor home"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 26V13a9 9 0 0 1 18 0v13l-4-3-5 3-5-3z"/><circle cx="12.5" cy="13" r="1.3"/><circle cx="19.5" cy="13" r="1.3"/></svg></span><span>ghost<span class="brand-sub">CONTRIBUTOR</span></span><span class="version">0.2</span></a>
+  <div class="workspace-label">YOUR WORKSPACE</div>
+  <label class="repo-label" for="repo-select">Repository</label><select id="repo-select" aria-label="Select repository"></select>
+  <nav aria-label="Main navigation"><button class="nav active" data-view="review"><span aria-hidden="true">▤</span> Review queue <b id="queue-count">0</b></button><button class="nav" data-view="history"><span aria-hidden="true">◷</span> Run history</button><button class="nav" data-view="policy"><span aria-hidden="true">◇</span> Repository policy</button></nav>
+  <div class="sidebar-note"><span class="small-ghost">✦</span><strong>A little less housekeeping.</strong><p>Small changes. Clear evidence.<br>You keep the final say.</p></div>
+  <div class="local-status"><span class="dot"></span><span>Runs on your machine<small>No hosted inference client</small></span></div>
+</aside>
+<main>
+  <header class="topbar"><div><span class="breadcrumb">Workspace</span><span class="slash">/</span><strong id="page-label">Review queue</strong></div><div class="top-actions"><span id="system-status" class="status-pill">Connecting</span><button id="pause-button" class="button subtle">Pause</button><button id="refresh-button" class="icon-button" aria-label="Refresh">↻</button></div></header>
+  <div class="content">
+    <div id="demo-banner" class="demo-banner" hidden><strong>DEMO FIXTURE</strong><span>This sample uses a fixed proposal. No AI inference has run; remote publishing is disabled.</span></div>
+    <div id="notice" role="status" class="notice" hidden></div>
+    <section class="intro"><div><div class="eyebrow">QUIETLY USEFUL.</div><h1 id="page-heading">Good changes.<br><span>Your call.</span></h1><p id="page-description">A second pair of eyes for the documentation you keep putting off.</p></div><button class="button primary" id="scan-button"><span aria-hidden="true">✦</span> Find a small improvement</button></section>
+    <section class="metrics" aria-label="Workspace summary"><div><span class="metric-label">AWAITING YOUR REVIEW</span><strong id="pending-count">—</strong><small>Focused, bounded proposals</small></div><div><span class="metric-label">LOCAL COMMITS</span><strong id="commit-count">—</strong><small>On dedicated topic branches</small></div><div><span class="metric-label">CURRENT MODEL</span><strong id="model-name" class="metric-model">—</strong><small>Exact tag from repository policy</small></div></section>
+    <section id="review-view" class="view"><div class="section-line"><div><h2>Your review queue</h2><span id="list-caption">One thoughtful change at a time.</span></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a proposal…" aria-label="Find a proposal"></label></div>
+      <div class="review-layout"><div class="proposal-list" id="proposal-list"></div><article class="review-card" id="proposal-detail"><div class="empty"><div class="empty-icon">◇</div><h3>Room for useful work.</h3><p>Register a clean repository, then ask Ghost to find a small improvement.</p><code>ghost repo add /path/to/repo</code></div></article></div>
+    </section>
+    <section id="history-view" class="view" hidden><div class="section-line"><div><h2>Every run leaves a trace</h2><span>A no-op is a healthy outcome, too.</span></div></div><div id="history-list" class="history-list"></div><h2 class="audit-heading">Recent audit events</h2><div id="audit-list" class="history-list"></div></section>
+    <section id="policy-view" class="view" hidden><div class="section-line"><div><h2>The boundaries you set</h2><span>Policy is enforced by the local Python service.</span></div></div><div id="policy-card" class="policy-card"></div><div class="policy-help"><h3>Change policy intentionally</h3><p>Edit <code>policy.toml</code> in your Ghost state directory. Existing proposals become stale when their policy changes. Default mode is review; remote pushes require a separate CLI command.</p><pre>ghost policy REPO --mode review
+ghost doctor --repo REPO
+ghost audit</pre></div></section>
+    <footer><span><span class="dot"></span> LOCAL-FIRST · HUMAN-REVIEWED</span><span>The ghost drafts. You own the truth.</span></footer>
+  </div>
+</main>
+<dialog id="confirm-dialog"><form method="dialog"><div class="eyebrow">YOUR APPROVAL</div><h2>Create this local commit?</h2><p>The exact diff will be revalidated and committed to a dedicated branch. Your current branch stays in place.</p><code id="confirm-branch"></code><p class="muted">This action does not push to a remote. Git hooks and any checks you configured will run locally.</p><div class="dialog-actions"><button class="button" value="cancel">Keep reviewing</button><button class="button primary" id="confirm-approve" value="approve">Approve & create commit</button></div></form></dialog>
+</body></html>

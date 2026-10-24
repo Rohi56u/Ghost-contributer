@@ -1,0 +1,5 @@
+# Runtime versions exercised for this release. Install via pip -r requirements.lock.
+# Re-resolve and run the safety suite before updating dependencies.
+libcst==1.8.6
+PyYAML==6.0.3
+tzdata==2025.2; sys_platform == 'win32'

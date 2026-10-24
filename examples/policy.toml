@@ -1,0 +1,39 @@
+version = 1
+
+[[repositories]]
+name = "myrepo"
+path = "/absolute/path/to/your/repository"
+base_branch = "main"
+model = "qwen2.5-coder:1.5b"
+host = "http://127.0.0.1:11434"
+include = ["*.py", "README.md", "docs/*.md"]
+exclude = ["tests/*", "test_*", "*_pb2.py"]
+timezone = "Asia/Kolkata"
+at = "10:00"
+quiet_start = "22:00"
+quiet_end = "08:00"
+mode = "review"
+allow_push = false
+remote = "origin"
+branch_prefix = "ghost/"
+timeout = 90
+max_context_chars = 10000
+num_ctx = 8192
+max_file_bytes = 100000
+check_timeout = 60
+checks = []
+local_only_confirmed = false
+
+# Optional explicit backlog; remove these entries to enable bounded discovery.
+[[repositories.backlog]]
+path = "retry.py"
+symbol = "retry_delay"
+
+# Markdown needs an EMPTY region in the tracked README:
+# <!-- ghost:retry:start -->
+# <!-- ghost:retry:end -->
+#
+# [[repositories.backlog]]
+# path = "README.md"
+# section = "retry"
+# evidence_path = "retry.py"

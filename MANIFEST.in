@@ -1,0 +1,7 @@
+include LICENSE README.md CONTRIBUTING.md start-demo.bat requirements.lock
+include START-HERE-WINDOWS.md TROUBLESHOOTING.md CHANGELOG.md
+include setup-windows.bat start-ghost.bat start-ollama-local.bat
+recursive-include src/ghost_contributor/web *.html *.css *.js
+recursive-include docs *.md *.json
+recursive-include examples *.toml *.service
+recursive-include tests *.py

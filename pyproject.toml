@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghost-contributor-local"
+version = "0.2.1"
+description = "Small, evidence-backed documentation changes. Local inference, human review."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "MIT"
+authors = [{name = "Kartik"}]
+dependencies = ["libcst==1.8.6", "tzdata==2025.2; sys_platform == 'win32'"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "build==1.3.0"]
+
+[project.scripts]
+ghost = "ghost_contributor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ghost_contributor = ["web/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

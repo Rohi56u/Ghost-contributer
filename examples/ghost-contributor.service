@@ -1,0 +1,13 @@
+[Unit]
+Description=Ghost Contributor local maintenance assistant
+
+[Service]
+Type=simple
+# Replace this absolute executable path with your installation.
+ExecStart=/absolute/path/to/.venv/bin/ghost daemon
+Restart=on-failure
+RestartSec=30
+UMask=0077
+
+[Install]
+WantedBy=default.target
